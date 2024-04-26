@@ -51,7 +51,7 @@ Ce nouveau Vagrantfile va :
 ```
 Vagrant.configure("2") do |config|
   config.vm.box = "generic/rocky9"
-  config.vm.hostname = "ezconf.tp1.efrei"
+  config.vm.hostname = "machine1.tp1.efrei"
   config.vm.network "private_network", ip: "10.1.1.11"
   config.vm.disk :disk, size: "20GB", primary: true
   config.vm.provider "virtualbox" do |vb|
