@@ -55,7 +55,7 @@ Vagrant.configure("2") do |config|
   config.vm.network "private_network", ip: "10.1.1.11"
   config.vm.disk :disk, size: "20GB", primary: true
   config.vm.provider "virtualbox" do |vb|
-    vb.name = "ezconf.tp1.efrei"
+    vb.name = "machine1.tp1.efrei"
     vb.memory = 2048
   end
 end
@@ -64,7 +64,7 @@ end
 Voici les rÃ©sultats :
 
 ```console
-[vagrant@ezconf ~]$ ip a
+[vagrant@cauchemar ~]$ ip a
 3: eth1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
     link/ether 08:00:27:03:97:6a brd ff:ff:ff:ff:ff:ff
     altname enp0s8
@@ -73,8 +73,8 @@ Voici les rÃ©sultats :
     inet6 fe80::a00:27ff:fe03:976a/64 scope link 
        valid_lft forever preferred_lft forever
 
-[vagrant@ezconf ~]$ cat /proc/meminfo
-MemTotal:        2002652 kB
+[vagrant@cauchemar ~]$ cat /proc/meminfo
+MemTotal:        2002653 kB
 ```
 
 En modifiant la configuration par dÃ©faut de mon Vagrantfile, je peux crÃ©er des machines virtuelles personnalisÃ©es.
@@ -86,10 +86,10 @@ Le Vagrantfile suivant fait rÃ©fÃ©rence Ã  une VM Ã  laquelle a Ã©tÃ© 
 ```
 Vagrant.configure("2") do |config|
   config.vm.box = "generic/rocky9"
-  config.vm.hostname = "ezconf.tp1.efrei"
+  config.vm.hostname = "machine1.tp1.efrei"
   config.vm.provision "shell", path: "script.sh"
   config.vm.provider "virtualbox" do |vb|
-    vb.name = "ezconf.tp1.efrei"
+    vb.name = "machine1.tp1.efrei"
     vb.memory = 2048
   end
 end
@@ -111,10 +111,10 @@ Ce script va installer vim, python3, puis mettre Ã  jour la machine :
 $ vagrant up
 $ vagrant ssh
 
-[vagrant@ezconf ~]$ cat bonjour cauchemar
+[vagrant@cauchemar ~]$ cat bonjour cauchemar
 bonjour cauchemar
 
-[vagrant@ezconf ~]$ python3
+[vagrant@cauchemar ~]$ python3
 Python 3.9.18 (main, Jan  4 2024, 00:00:00) 
 [GCC 11.4.1 20230605 (Red Hat 11.4.1-2)] on linux
 Type "help", "copyright", "credits" or "license" for more information.
