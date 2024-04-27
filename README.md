@@ -17,7 +17,7 @@ $ cat Vagrantfile
 
 ```
 Vagrant.configure("2") do |config|
-  config.vm.box = "generic/rocky9"
+  config.vm.box = "ed/rocky9"
 end
 ```
 
@@ -50,7 +50,7 @@ Ce nouveau Vagrantfile va :
 
 ```
 Vagrant.configure("2") do |config|
-  config.vm.box = "generic/rocky9"
+  config.vm.box = "ed/rocky9"
   config.vm.hostname = "machine0.tp1.efrei"
   config.vm.network "private_network", ip: "10.1.1.11"
   config.vm.disk :disk, size: "20GB", primary: true
@@ -85,7 +85,7 @@ Le Vagrantfile suivant fait rÃ©fÃ©rence Ã  une VM Ã  laquelle a Ã©tÃ© 
 
 ```
 Vagrant.configure("2") do |config|
-  config.vm.box = "generic/rocky9"
+  config.vm.box = "ed/rocky9"
   config.vm.hostname = "machine0.tp1.efrei"
   config.vm.provision "shell", path: "script.sh"
   config.vm.provider "virtualbox" do |vb|
@@ -146,7 +146,7 @@ Nous pouvons crÃ©er autant de machines que nous le souhaitons avec un seul Vag
 ```
 Vagrant.configure("2") do |config|
   config.vm.define "machine1" do |m1|
-    m1.vm.box = "generic/rocky9"
+    m1.vm.box = "ed/rocky9"
     m1.vm.hostname = "machine0.tp1.efrei"
 
     m1.vm.network :private_network, ip: "10.1.1.101"
@@ -157,7 +157,7 @@ Vagrant.configure("2") do |config|
     end
   end
   config.vm.define "machine2" do |m2|
-    m2.vm.box = "generic/rocky9"
+    m2.vm.box = "ed/rocky9"
     m2.vm.hostname = 'machine2.tp1.efrei'
 
     m2.vm.network :private_network, ip: "10.1.1.102"
